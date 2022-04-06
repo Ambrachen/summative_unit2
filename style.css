@@ -2,6 +2,11 @@
     width: 150px;
 }
 
+.carousel{
+    width:1440px; 
+    height:850px
+}
+
 .bg-purple{
     color: #A45EE9;
 }
