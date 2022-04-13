@@ -1,0 +1,24 @@
+.brand-img{
+    width: 150px;
+}
+
+.carousel{
+    width:1440px; 
+    height:850px
+}
+
+.bg-purple{
+    color: #A45EE9;
+}
+
+.text-purple{
+    color: #3C1361;
+}
+
+.btn-purple{
+    color: #bCA0DC;
+}
+
+.btn-outline-purple{
+    color: #592693;
+}
