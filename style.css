@@ -22,3 +22,8 @@
 .btn-outline-purple{
     color: #592693;
 }
+
+
+.carousel-item{
+    position: relative;
+}
