@@ -17,70 +17,89 @@
   <link rel="stylesheet" href="style.css">
 
 </head>
-
 <body>
-  <div class="bg-purple bg-opacity-25">
-    <nav class="navbar navbar-expand-lg navbar-primary bg-dark bg-opacity-50 ">
-      <div class="container-fluid">
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-1 mb-lg-0">
-            <li class="nav-item" style="font-family: 'Orbitron', sans-serif;">
-              <a class="nav-link active" aria-current="page" href="index.html">
-                <img src="clicky-games-logo.png" class="brand-img" alt="">
-              </a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" style="font-family: 'Orbitron', sans-serif;" type="search"
-              placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-purple" style="font-family: 'Orbitron', sans-serif;"
-              type="submit">🔍</button>
-          </form>
+    <div class="bg-purple bg-opacity-25">
+      <nav class="navbar navbar-expand-lg navbar-primary bg-dark bg-opacity-50 ">
+        <div class="container-fluid">
+  
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+              <li class="nav-item" style="font-family: 'Orbitron', sans-serif;">
+                <a class="nav-link active" aria-current="page" href="index.html">
+                  <img src="clicky-games-logo.png" class="brand-img" alt="">
+                </a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" style="font-family: 'Orbitron', sans-serif;" type="search"
+                placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-purple" style="font-family: 'Orbitron', sans-serif;"
+                type="submit">🔍</button>
+            </form>
+          </div>
         </div>
+      </nav>
+      <div class="container">
+        <div class="points row">
+          <div class="col">
+            <h2>Points: <span class="counter-points">0</span></h2>
+          </div>
+          <div class="col">
+            <h2>Time: <span class="counter-time">60</span></h2>
+          </div>
+        </div>
+  
       </div>
-    </nav>
-    <div class="points">
-      <h2>Points: <span class="counter-points">0</span></h2>
-    </div>
-    <div class="game-clicker-grid">
-      
-    </div>
-
-
-    <script>
-      let points = 0 ;
-      const gameContainer = document.querySelector('.game-clicker-grid')
-
-      const clickElement =  (e) => {
-        points++
-        document.querySelector('.counter-points').innerHTML = points
-        e.remove()
-        if (points > 50){
-          alert("You're so good! Try out level 3!")
+      </div>
+      <div class="game-clicker-grid">
+        
+      </div>
+  
+  
+      <script>
+        let points = 0 ;
+        let time = 60;
+        const gameContainer = document.querySelector('.game-clicker-grid')
+  
+        const clickElement =  (e) => {
+          points++
+          document.querySelector('.counter-points').innerHTML = points
+          e.remove()
+          if (points > 50){
+            alert("You're great at this, but can you handle level 2?")
+            location.href="level2.html"
+          }
         }
-      }
-
-      const placeRandomItem = () => {
-        const randomLeft = parseInt(Math.random() * 100)
-        const randomTop = parseInt(Math.random() * 100)
-
-        const elementToAdd = '<div onclick="clickElement(this)" class="item" style="left: '+randomLeft+'%;top: '+randomTop+'%;"></div>'
-
-        gameContainer.innerHTML =  gameContainer.innerHTML + elementToAdd
-      }
-
-      setInterval( () => {
-        const difficulty=  0.6
-        if ( Math.random() < difficulty) {
-          placeRandomItem()
+  
+        const placeRandomItem = () => {
+          const randomLeft = parseInt(Math.random() * 100)
+          const randomTop = parseInt(Math.random() * 100)
+  
+          const elementToAdd = '<div onclick="clickElement(this)" class="item" style="left: '+randomLeft+'%;top: '+randomTop+'%;"></div>'
+  
+          gameContainer.innerHTML =  gameContainer.innerHTML + elementToAdd
         }
-      },1000)
-    </script>
+  
+        setInterval( () => {
+          const difficulty=  0.7
+          if ( Math.random() < difficulty) {
+            placeRandomItem()
+          }
+        },550)
+  
+        setInterval(() => {
+          time--
+          document.querySelector('.counter-time').innerHTML = time
+          if (time < 0 ){
+            alert("you lost")
+            location.reload()
+          }
+        },1000)
+      </script>
 </body>
 
 </html>
