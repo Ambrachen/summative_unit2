@@ -27,3 +27,20 @@
 .carousel-item{
     position: relative;
 }
+.game-clicker-grid{
+    width: 100%;
+    max-width: 800px;
+    height: 800px;
+    /* background: url('grid.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto; 
+    position: relative;
+}
+.item{
+    min-width: 5%;
+    min-height: 5%;
+    position: absolute;
+    background: red;
+    cursor:pointer; 
+}
